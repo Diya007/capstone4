@@ -1,23 +1,27 @@
 var React = require('react');
 
+var connect = require('react-redux').connect;
+var actions = require('../actions/index');
+
 var Hero = require('./hero');
 var Logo = require('./Logo');
+var TitleList = require('./list');
 
 
 var App = React.createClass({
-  
-  getInitialState: function() {
-    return {searchTerm:"", searchUrl:""};
-  },
   handleKeyUp :function(e){
     if (e.key === 'Enter' && this.state.searchTerm !== '') {
-      var searchUrl = "http://trailersapi.com/trailers.json?movie=" + this.state.searchTerm + '&limit=5&width=320';
-      this.setState({searchUrl:searchUrl});
+
+      var requestTerm= this.refs.requestTerm.value;
+      console.log(requestTerm);
+      return requestTerm;
+
     }
   },
 
   handleChange : function(e){
-      this.setState({searchTerm : e.target.value});    
+      this.setState({searchTerm : e.target.value});   
+      //e.target.value = the value of what you type; 
   },
   render: function() {
     return (
@@ -26,12 +30,12 @@ var App = React.createClass({
           <Logo />
          
           <div id="search" className="Search">
-            <input onKeyUp={this.handleKeyUp} onChange={this.handleChange} type="search" placeholder="Search for a title..." value={this.state.searchTerm}/>
-
+            <input onKeyUp={this.handleKeyUp} type="search" placeholder="Search for a title..." ref='requestTerm'/>
           </div>
            
         </header>
         <Hero />
+        <TitleList title="Search Results" term={this.requestTerm} />
         
       </div>
     );
@@ -40,6 +44,6 @@ var App = React.createClass({
 });
 
 
+var Container = connect()(TitleList);
 
-
-module.exports = App;
+module.exports = Container;
