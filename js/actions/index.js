@@ -1,6 +1,6 @@
 
 
-var fetchVideos = function(term) {
+var fetchResults = function(term) {
 	return function(dispatch) {
 		var apiKey = 'AIzaSyBlpPh_6snu64y_Q2O7OAubiS2DSM1hWZY';
 		var url = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+term+'&key='+apiKey;
@@ -26,4 +26,4 @@ var fetchVideos = function(term) {
 
 }
 
-exports.fetchVideos = fetchVideos;
+exports.fetchResults = fetchResults;

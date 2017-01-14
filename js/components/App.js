@@ -1,49 +1,54 @@
 var React = require('react');
 
-var connect = require('react-redux').connect;
+
+//var connect = require('react-redux').connect;
 var actions = require('../actions/index');
 
+var TitleList = require('./list');
 var Hero = require('./hero');
 var Logo = require('./Logo');
-var TitleList = require('./list');
+
 
 
 var App = React.createClass({
-  handleKeyUp :function(e){
-    if (e.key === 'Enter' && this.state.searchTerm !== '') {
-
-      var requestTerm= this.refs.requestTerm.value;
-      console.log(requestTerm);
-      return requestTerm;
-
-    }
+  
+  
+  fetchTerm: function(event){
+    event.preventDefault()
+    console.log('hi')
+    var requestTerm= this.refs.requestTerm.value;
+      
+    //return requestTerm;
+   
   },
 
-  handleChange : function(e){
-      this.setState({searchTerm : e.target.value});   
-      //e.target.value = the value of what you type; 
-  },
   render: function() {
+    console.log(this);
     return (
+   
       <div>
         <header className="Header">
-          <Logo />
-         
-          <div id="search" className="Search">
-            <input onKeyUp={this.handleKeyUp} type="search" placeholder="Search for a title..." ref='requestTerm'/>
-          </div>
-           
+        <Logo />  
+
+        <div id="search" className="Search">
+            <input  type="text" placeholder="Search for a title..." ref='requestTerm' />
+            <button type ="button" onClick ={this.fetchTerm}>
+                Enter
+            </button>
+        </div> 
+
         </header>
+
         <Hero />
         <TitleList title="Search Results" term={this.requestTerm} />
-        
       </div>
+
+
     );
   }
 
 });
 
 
-var Container = connect()(TitleList);
 
-module.exports = Container;
+module.exports = App;

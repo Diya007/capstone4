@@ -6,7 +6,7 @@ var Provider = require('react-redux').Provider;
 var store = require('./store');
 
 var App= require('./components/App');
-var TitleList= require('./components/list');
+//var TitleList= require('./components/list');
 
 
 document.addEventListener('DOMContentLoaded', function(){
