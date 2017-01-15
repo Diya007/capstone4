@@ -5,6 +5,7 @@ var actions = require('../actions/index');
 
 var TitleList = React.createClass({
   componentDidMount: function() {
+     console.log(this.props.term)
     this.props.dispatch(actions.fetchResults(this.props.term));
     
   },

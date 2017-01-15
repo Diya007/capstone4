@@ -2,17 +2,21 @@ import React from 'react';
 import {
 	renderIntoDocument,
 	findRenderedDOMComponentWithClass
-}from 'react-addons-test-utils';
-import { App } from '../components/App';
+} from 'react-addons-test-utils';
+
+var App = require('../components/App');
 import { expect } from 'chai';
+
+// import { App } from '../components/App';
+// import { expect } from 'chai';
 
 
 describe('App', function() {
-	it('should have render a header with class name "Header" ', function() {
+	it('should have render a header with class name "Header2" ', function() {
 		const component = renderIntoDocument(
-			<Header />
+			<Header2 />
 		);
-		const header = findRenderedDOMComponentWithClass(component, 'Header')
+		const header = findRenderedDOMComponentWithClass(component, 'Header2')
 		expect (header).to.be.ok;
 	});
 	
