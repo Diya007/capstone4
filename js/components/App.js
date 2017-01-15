@@ -12,25 +12,22 @@ var Logo = require('./Logo');
 var App = React.createClass({
   getInitialState: function() {
     return {requestTerm: ""};
-  }
+  },
 
   fetchTerm: function(){
     var requestTerm = this.refs.requestTerm.value;
     //this.props.dispatch(actions.fetchResults(requestTerm));
     this.setState({requestTerm: requestTerm});
-
-
   },
 
   render: function() {
 
     return (
-   
+      
       <div>
+      
         <header className="Header">
         <Logo />  
-
-        
         <div id="search" className="Search">
             <input  type="text" placeholder="Search for a title..." ref="requestTerm" />
         </div> 

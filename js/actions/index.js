@@ -21,6 +21,10 @@ var fetchResults = function(term) {
 			dispatch({type: 'FETCH_YOUTUBE_SUCCESS', items});
 
 		})
+		.catch(function(err) {
+			console.log('there has been an error');
+
+		})
 	}
 	
 
