@@ -1,31 +1,28 @@
 var React = require('react');
 
-//var connect = require('react-redux').connect;
+var connect = require('react-redux').connect;
 var actions = require('../actions/index');
-
 var TitleList = require('./list');
 var Hero = require('./hero');
 var Logo = require('./Logo');
 
 
-
 var App = React.createClass({
-  getInitialState: function() {
-    return {requestTerm: ""};
-  },
+
 
   fetchTerm: function(){
     var requestTerm = this.refs.requestTerm.value;
-    //this.props.dispatch(actions.fetchResults(requestTerm));
-    this.setState({requestTerm: requestTerm});
+    //this.setState({requestTerm: requestTerm});
+    this.props.dispatch(actions.fetchResults(requestTerm));
+    
   },
+
 
   render: function() {
 
     return (
       
-      <div>
-      
+      <div> 
         <header className="Header">
         <Logo />  
         <div id="search" className="Search">
@@ -37,17 +34,16 @@ var App = React.createClass({
         </button>
       
         </header>
-
-        <Hero />
-        <TitleList title="Search Results" term={this.state.requestTerm} />
+        
+        <TitleList title="Search Results"  />
       </div>
-
 
     );
   }
 
 });
 
+var Container = connect()(App)
 
 
-module.exports = App;
+module.exports = Container;
