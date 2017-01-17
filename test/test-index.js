@@ -12,7 +12,7 @@ import { expect } from 'chai';
 
 
 describe('App', function() {
-	it('should have render a header with class name "Header2" ', function() {
+	it('should have render a div with class name "search" ', function() {
 		const component = renderIntoDocument(
 			<Header2 />
 		);

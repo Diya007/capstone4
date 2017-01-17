@@ -13,7 +13,8 @@ var TitleList = React.createClass({
           var videoId = 'https://www.youtube.com/watch?v='+item.id.videoId;
           var name = item.snippet.title;
           var overview = item.snippet.description;
-          return <div key = {i}> <a href = {videoId}><img src = {backDrop} /></a> </div>
+
+          return <div key = {i}> <a href = {videoId} target="_blank"><img src = {backDrop} /></a> </div>
 
           //return <Item key = {i} title={name} overview={overview} backdrop={backDrop} />
           
