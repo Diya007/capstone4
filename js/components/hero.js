@@ -23,7 +23,7 @@ var Hero = React.createClass({
 var HeroButton = React.createClass({
   render: function() {
     return (
-      <a href="#" className="Button" data-primary={this.props.primary}>{this.props.text}</a>
+      <a className="Button" href={'https://www.youtube.com/watch?v=frdj1zb9sMY'} target="_blank" data-primary={this.props.primary}>{this.props.text}</a>
     );
   }
 })

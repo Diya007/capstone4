@@ -14,9 +14,9 @@ import { expect } from 'chai';
 describe('App', function() {
 	it('should have render a div with class name "search" ', function() {
 		const component = renderIntoDocument(
-			<Header2 />
+			<div />
 		);
-		const header = findRenderedDOMComponentWithClass(component, 'Header2')
+		const  = findRenderedDOMComponentWithClass(component, 'Header2')
 		expect (header).to.be.ok;
 	});
 	

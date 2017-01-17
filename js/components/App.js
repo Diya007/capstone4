@@ -24,15 +24,22 @@ var App = React.createClass({
       <div> 
         <header className="Header">
         <Logo />  
+
+
+
         <div id="search" className="Search">
             <input  type="text" placeholder="Search for a title..." ref="requestTerm" />
+
         </div> 
 
-        <button type ="button" onClick ={this.fetchTerm}>
-                Enter
-        </button>
+        <div id="enter">
+
+          <button id="enter" type ="button" onClick ={this.fetchTerm} > Enter </button>
+
+        </div>
       
         </header>
+        <Hero />
         
         <TitleList title="Search Results" />
       </div>

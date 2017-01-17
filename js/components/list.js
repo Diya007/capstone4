@@ -14,9 +14,9 @@ var TitleList = React.createClass({
           var name = item.snippet.title;
           var overview = item.snippet.description;
 
-          return <div key = {i}> <a href = {videoId} target="_blank"><img src = {backDrop} /></a> </div>
+          //return <div key = {i}> <a href = {videoId} target="_blank"><img src = {backDrop} /></a> </div>
 
-          //return <Item key = {i} title={name} overview={overview} backdrop={backDrop} />
+          return <Item key = {i} title={name} overview={overview} backdrop={backDrop} />
           
         };
     })
@@ -39,7 +39,7 @@ var TitleList = React.createClass({
 var Item = React.createClass({
   render: function() {
     return (
-      <div className="Item" style={{backgroundImage: this.props.backdrop}} >
+      <div className="Item" style={{backgroundImage: 'url(' + this.props.backdrop + ')'}} >
         <div className="overlay">
           <div className="title">{this.props.title}</div>
           <div className="plot">{this.props.overview}</div>
