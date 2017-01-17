@@ -4,7 +4,7 @@ var Logo = React.createClass({
 	render: function() {
 		return (
 			<div id="logo" className="Logo">
-				Trailor Engine
+				Trailer Engine
 			</div>
 		);
 	}

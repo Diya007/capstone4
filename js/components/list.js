@@ -5,6 +5,14 @@ var actions = require('../actions/index');
 
 var TitleList = React.createClass({
  
+  loadContent: function() {
+    this.props.dispatch(actions.fetchResults(this.props.term));
+  },
+  
+  componentDidMount: function() {
+    this.loadContent();
+  },
+
   render: function() { 
     
     var imgs = this.props.items.map(function(item, i) {
@@ -16,7 +24,7 @@ var TitleList = React.createClass({
 
           //return <div key = {i}> <a href = {videoId} target="_blank"><img src = {backDrop} /></a> </div>
 
-          return <Item key = {i} title={name} overview={overview} backdrop={backDrop} />
+          return  <a href = {videoId} target="_blank"> <Item key = {i}  title={name} overview={overview} backdrop={backDrop} /> </a> 
           
         };
     })
@@ -24,7 +32,7 @@ var TitleList = React.createClass({
     return(
       <div ref="titlecategory" className="TitleList">
         <div className="Title">
-          <h1>{this.props.title}</h1>
+          <h2>{this.props.title}</h2>
           <div className="titles-wrapper">
             {imgs}
           </div>

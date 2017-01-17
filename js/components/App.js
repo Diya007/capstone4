@@ -41,7 +41,10 @@ var App = React.createClass({
         </header>
         <Hero />
         
-        <TitleList title="Search Results" />
+        <TitleList title="Search Results" term={''} />
+        <TitleList title="Comedy" term={'comedy'} />
+        <TitleList title="horror" term={'horror'} />
+
       </div>
 
     );
