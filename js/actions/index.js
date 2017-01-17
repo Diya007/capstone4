@@ -17,18 +17,17 @@ var fetchResults = function(term) {
 			return response.json();
 		})
 		.then(function(data) {
-
-			//var { items } = data;
 			var items = data.items;
 			dispatch({type: 'FETCH_YOUTUBE_SUCCESS', items:items});
 
 		})
 		.catch(function(err) {
+
 			console.log('there has been an error');
+			console.log(err)
 
 		})
-
-		console.log("hello")
+	
 	}
 	
 

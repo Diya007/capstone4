@@ -5,32 +5,29 @@ var actions = require('../actions/index');
 
 var TitleList = React.createClass({
  
-  // componentWillMount: function() {
-  //   //var requestTerm = this.props.term;
-  //   //console.log(this.props.term);
-  //   //this.props.dispatch(actions.fetchResults(this.props.term));
-  //   //console.log(this.props.term)
-    
-  // },
   render: function() { 
-    //console.log(this.props.items)
     
     var imgs = this.props.items.map(function(item, i) {
         if(i<5) {
-          var thumnails = item.snippet.thumbnails.default.url;
+          var backDrop = item.snippet.thumbnails.high.url;
           var videoId = 'https://www.youtube.com/watch?v='+item.id.videoId;
-          return <div key = {i}> <a><img src = {thumnails} /></a> </div>
+          var name = item.snippet.title;
+          var overview = item.snippet.description;
+          return <div key = {i}> <a href = {videoId}><img src = {backDrop} /></a> </div>
 
+          //return <Item key = {i} title={name} overview={overview} backdrop={backDrop} />
+          
         };
     })
     
     return(
-      <div>
-        <h1>{this.props.title}</h1>
-        <div className="TitleList">
-          {imgs}
+      <div ref="titlecategory" className="TitleList">
+        <div className="Title">
+          <h1>{this.props.title}</h1>
+          <div className="titles-wrapper">
+            {imgs}
+          </div>
         </div>
-
       </div>
     )  
    
@@ -38,15 +35,26 @@ var TitleList = React.createClass({
 });
 
 
+var Item = React.createClass({
+  render: function() {
+    return (
+      <div className="Item" style={{backgroundImage: this.props.backdrop}} >
+        <div className="overlay">
+          <div className="title">{this.props.title}</div>
+          <div className="plot">{this.props.overview}</div>
+        </div>
+      </div>
+    );
+  }
+});
+
 function mapStateToProps(state) {
   return {
     items: state.items,
-    //items是state object里的 而不是items = state
   }
 }
 var Container = connect(mapStateToProps)(TitleList);
-//container pass state to component;
-//export default connect(mapStateToProps)(App)
+
 
 module.exports = Container;
 

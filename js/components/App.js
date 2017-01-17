@@ -12,7 +12,6 @@ var App = React.createClass({
 
   fetchTerm: function(){
     var requestTerm = this.refs.requestTerm.value;
-    //this.setState({requestTerm: requestTerm});
     this.props.dispatch(actions.fetchResults(requestTerm));
     
   },
@@ -35,7 +34,7 @@ var App = React.createClass({
       
         </header>
         
-        <TitleList title="Search Results"  />
+        <TitleList title="Search Results" />
       </div>
 
     );
